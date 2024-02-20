@@ -9,20 +9,17 @@ document.addEventListener('DOMContentLoaded', function() {
         if (alertParam) {
             const decodedAlert = decodeURIComponent(alertParam);
             try {
-                console.log(decodedAlert);
-                const alertData = JSON.parse(decodedAlert);
-                // Assuming the alert data is a simple value or JSON-encoded object
-                // Adjust the property access as needed based on your data structure.
-                // Example: directly use the alert data if it's a simple value
-                // or use a specific property from the alertData object.
-                // Ensure your JSON structure is correctly addressed here.
-                document.getElementById('inputData').value = alertData.someProperty || '';
+                console.log(decodedAlert); // Successfully logs the decoded alert parameter
+                const alertData = JSON.parse(decodedAlert); // Parses the JSON data
+                // Example usage: directly setting the value if it's simple text
+                document.getElementById('inputData').value = alertData; // OR a specific property
             } catch (e) {
-                console.error("Parsing error:", e);
+                console.error("Parsing error:", e); // Correctly catches and logs JSON parsing errors
                 document.getElementById('alertDataDisplay').textContent = "Parsing error: " + e.toString();
             }
         }
     }
+
 
     populateInputField();
 
