@@ -8,23 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const alertParam = getQueryParam('alert');
         if (alertParam) {
             const decodedAlert = decodeURIComponent(alertParam);
-            console.log("Decoded Alert Param:", decodedAlert); // For debugging
-            try {
-                // Parse the JSON string
-                const alertData = JSON.parse(decodedAlert);
-                console.log("Parsed Alert Data:", alertData); // For debugging
-                
-                // Assuming you want to extract the description from the annotations
-                // and populate it into the inputData field
-                if (alertData.annotations && alertData.annotations.description) {
-                    document.getElementById('inputData').value = alertData.annotations.description;
-                } else {
-                    console.log("Description not found in alert data");
-                }
-            } catch (e) {
-                console.error("Parsing error:", e);
-                document.getElementById('alertDataDisplay').textContent = "Parsing error: " + e.toString();
-            }
+            // Set the entire decoded JSON string as the value of the inputData field
+            document.getElementById('inputData').value = decodedAlert;
         }
     }
 
@@ -41,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ key: inputData })
+            body: JSON.stringify({ alert: inputData })
         })
         .then(response => response.json())
         .then(data => {
