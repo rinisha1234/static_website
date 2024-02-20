@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 //const alertData = JSON.parse(decodedAlert);
                 // Here, you need to adjust according to your specific alert data structure
                 // For example, if alertData itself is the value you want to set:
-                document.getElementById('inputData').value = alertData;
+                //document.getElementById('inputData').value = alertData;
                 // OR if alertData contains a property you want to use:
                 // document.getElementById('inputData').value = alertData.someProperty;
             } catch (e) {
