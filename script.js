@@ -4,9 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
         return urlParams.get(name);
     }
 
-    function adjustTextareaHeight(textarea) {
+    function adjustTextareaSize(textarea) {
         textarea.style.height = 'auto'; // Reset height to recalculate
+        textarea.style.width = 'auto'; // Reset width to recalculate
         textarea.style.height = textarea.scrollHeight + 'px'; // Set new height based on scroll height
+        textarea.style.width = textarea.scrollWidth + 'px'; // Set new width based on scroll width
     }
 
     function populateInputField() {
@@ -15,14 +17,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const decodedAlert = decodeURIComponent(alertParam);
             const inputDataField = document.getElementById('inputData');
             inputDataField.value = decodedAlert; // Set the JSON string as value
-            adjustTextareaHeight(inputDataField); // Adjust the textarea height based on its content
+            adjustTextareaSize(inputDataField); // Adjust the textarea size based on its content
         }
     }
 
     populateInputField();
 
     document.getElementById('inputData').addEventListener('input', function() {
-        adjustTextareaHeight(this); // Adjust height on user input
+        adjustTextareaSize(this); // Adjust size on user input
     });
 
     document.getElementById('dataForm').addEventListener('submit', function(e) {
