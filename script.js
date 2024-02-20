@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
 
         const inputData = document.getElementById('inputData').value;
+        const severityScore = document.getElementById('severityScore').value; // Get severity score value
         const apiUrl = 'https://1ne4g6lm7e.execute-api.us-east-1.amazonaws.com/aiops/hello';
 
         fetch(apiUrl, {
@@ -39,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ alert: inputData }) // Assuming you want to wrap the inputData in an object with key 'alert'
+            body: JSON.stringify({ alert: inputData, severity_score: severityScore }) // Include severity score in payload
         })
         .then(response => response.json())
         .then(data => {
