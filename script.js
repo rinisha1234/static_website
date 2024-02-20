@@ -4,13 +4,13 @@ document.addEventListener('DOMContentLoaded', function() {
         return urlParams.get(name);
     }
 
-    // function adjustTextareaSize(textarea) {
-    //     textarea.style.height = 'auto'; // Reset height to recalculate
-    //     textarea.style.width = 'auto'; // Reset width to recalculate
-    //     textarea.style.resize = 'both'; // Enable resizing both horizontally and vertically
-    //     textarea.style.height = textarea.scrollHeight + 'px'; // Set new height based on scroll height
-    //     textarea.style.width = textarea.scrollWidth + 'px'; // Set new width based on scroll width
-    // }
+    function adjustTextareaSize(textarea) {
+        textarea.style.height = 'auto'; // Reset height to recalculate
+        textarea.style.width = 'auto'; // Reset width to recalculate
+        textarea.style.resize = 'both'; // Enable resizing both horizontally and vertically
+        textarea.style.height = textarea.scrollHeight + 'px'; // Set new height based on scroll height
+        textarea.style.width = textarea.scrollWidth + 'px'; // Set new width based on scroll width
+    }
 
     function populateInputField() {
         const alertParam = getQueryParam('alert');
