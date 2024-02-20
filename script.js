@@ -5,17 +5,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function populateInputField() {
-        const alertParam = getQueryParam('alert');)
+        const alertParam = getQueryParam('alert');
         if (alertParam) {
             const decodedAlert = decodeURIComponent(alertParam);
             try {
-                console.log(decodedAlert)
-                //const alertData = JSON.parse(decodedAlert);
-                // Here, you need to adjust according to your specific alert data structure
-                // For example, if alertData itself is the value you want to set:
-                //document.getElementById('inputData').value = alertData;
-                // OR if alertData contains a property you want to use:
-                // document.getElementById('inputData').value = alertData.someProperty;
+                console.log(decodedAlert);
+                const alertData = JSON.parse(decodedAlert);
+                // Assuming the alert data is a simple value or JSON-encoded object
+                // Adjust the property access as needed based on your data structure.
+                // Example: directly use the alert data if it's a simple value
+                // or use a specific property from the alertData object.
+                // Ensure your JSON structure is correctly addressed here.
+                document.getElementById('inputData').value = alertData.someProperty || '';
             } catch (e) {
                 console.error("Parsing error:", e);
                 document.getElementById('alertDataDisplay').textContent = "Parsing error: " + e.toString();
