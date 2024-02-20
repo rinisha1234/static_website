@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function populateInputField() {
         const alertParam = getQueryParam('alert');
+        console.log(alertParam)
         if (alertParam) {
             const decodedAlert = decodeURIComponent(alertParam);
             try {
