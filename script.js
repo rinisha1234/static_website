@@ -4,16 +4,26 @@ document.addEventListener('DOMContentLoaded', function() {
         return urlParams.get(name);
     }
 
+    function adjustTextareaHeight(textarea) {
+        textarea.style.height = 'auto'; // Reset height to recalculate
+        textarea.style.height = textarea.scrollHeight + 'px'; // Set new height based on scroll height
+    }
+
     function populateInputField() {
         const alertParam = getQueryParam('alert');
         if (alertParam) {
             const decodedAlert = decodeURIComponent(alertParam);
-            // Set the entire decoded JSON string as the value of the inputData field
-            document.getElementById('inputData').value = decodedAlert;
+            const inputDataField = document.getElementById('inputData');
+            inputDataField.value = decodedAlert; // Set the JSON string as value
+            adjustTextareaHeight(inputDataField); // Adjust the textarea height based on its content
         }
     }
 
     populateInputField();
+
+    document.getElementById('inputData').addEventListener('input', function() {
+        adjustTextareaHeight(this); // Adjust height on user input
+    });
 
     document.getElementById('dataForm').addEventListener('submit', function(e) {
         e.preventDefault();
@@ -26,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ alert: inputData })
+            body: JSON.stringify({ alert: inputData }) // Assuming you want to wrap the inputData in an object with key 'alert'
         })
         .then(response => response.json())
         .then(data => {
