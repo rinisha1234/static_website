@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (alertParam) {
             const decodedAlert = decodeURIComponent(alertParam);
             try {
+                console.log(decodedAlert)
                 const alertData = JSON.parse(decodedAlert);
                 // Here, you need to adjust according to your specific alert data structure
                 // For example, if alertData itself is the value you want to set:
