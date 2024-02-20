@@ -4,45 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Integration Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #007BFF;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            overflow: auto;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
-    <h2>Send Data to API</h2>
-    <form id="dataForm">
-        <label for="inputData">Data to Send:</label>
-        <input type="text" id="inputData" placeholder="Enter some data" required />
-        <button type="submit">Send</button>
-    </form>
+    <div class="container">
+        <h2>Send Data to API</h2>
+        <form id="dataForm">
+            <label for="inputData">Data to Send:</label>
+            <textarea id="inputData" placeholder="Enter JSON data here" required></textarea>
+            <button type="submit">Send</button>
+        </form>
 
-    <h3>Response from API:</h3>
-    <pre id="apiResponse">No response yet</pre>
-
-    <h3>Alert Information</h3>
-    <!-- Display extracted alert data or a related message here -->
-    <pre id="alertDataDisplay">Alert data will be shown here</pre>
+        <h3>Response from API:</h3>
+        <pre id="apiResponse">No response yet</pre>
+    </div>
 
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Integration Example</title>
-</head>
-<body>
-    <h2>Send Data to API</h2>
-    <form id="dataForm">
-        <input type="text" id="inputData" placeholder="Enter some data" required />
-        <button type="submit">Send</button>
-    </form>
-
-    <h3>Response from API:</h3>
-    <pre id="apiResponse">No response yet</pre>
-
-    <script src="script.js"></script>
-</body>
-</html> -->
