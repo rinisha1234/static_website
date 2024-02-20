@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const inputData = document.getElementById('inputData').value;
         const severityScore = document.getElementById('severityScore').value; // Get severity score value
         const scoredBy = document.getElementById('scoredBy').value; // Get scored by value
-        const apiUrl = 'https://1ne4g6lm7e.execute-api.us-east-1.amazonaws.com/aiops/hello';
+        const apiUrl = 'https://1ne4g6lm7e.execute-api.us-east-1.amazonaws.com/aiops/custom';
 
         fetch(apiUrl, {
             method: 'POST',
