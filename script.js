@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('apiResponse').textContent = data.error;
             } else {
                 // Otherwise, display the full response (or handle success as needed)
-                document.getElementById('apiResponse').textContent = "Success: " + JSON.stringify(data, null, 2);
+                document.getElementById('apiResponse').textContent = JSON.stringify(data, null, 2);
             }
         })
         .catch(error => {
