@@ -30,28 +30,20 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             body: JSON.stringify({ alert: inputData, severity_score: severityScore, scored_by: scoredBy })
         })
-        .then(response => {
-            if (!response.ok) {
-                // If response status code is not OK, parse JSON to get error message and throw it
-                return response.json().then(err => {
-                    throw Error(err.error || 'Unknown API error');
-                });
-            }
-            return response.json(); // Parse successful response to JSON
-        })
+        .then(response => response.json()) // Parse JSON response
         .then(data => {
             if (data.error) {
-                // Display API error message
+                // If there's an error message, display it directly
                 document.getElementById('apiResponse').textContent = data.error;
             } else {
-                // Display success message or data
+                // Otherwise, display the full response (or handle success as needed)
                 document.getElementById('apiResponse').textContent = "Success: " + JSON.stringify(data, null, 2);
             }
         })
         .catch(error => {
-            // Display network errors or errors thrown from the response handling
+            // Handle network errors or issues that prevent the request from completing
             console.error('Error:', error);
-            document.getElementById('apiResponse').textContent = error.message;
+            document.getElementById('apiResponse').textContent = 'Failed to fetch';
         });
     });
 });
